@@ -114,7 +114,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/button1"
         android:layout_alignStart="@id/button1"
-
         android:textSize="30sp"
         android:text="@string/_4"
         />
