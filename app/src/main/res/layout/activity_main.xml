@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/editText1"
+        android:id="@+id/textview1"
         android:layout_width="389dp"
         android:layout_height="190dp"
         android:layout_alignParentStart="true"
@@ -22,11 +22,11 @@
         android:textSize="70sp" />
 
     <Button
-        android:id="@+id/C"
+        android:id="@+id/C1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@id/button1"
-        android:layout_below="@id/editText1"
+        android:layout_below="@id/textview1"
         android:text="@string/c"
         android:textSize="30sp"
         android:layout_marginTop="40dp"
@@ -37,8 +37,8 @@
         android:id="@+id/divider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/C"
-        android:layout_alignBaseline="@id/C"
+        android:layout_toEndOf="@id/C1"
+        android:layout_alignBaseline="@id/C1"
         android:textSize="30sp"
         android:text="@string/divider"
         android:layout_marginStart="10dp"
@@ -69,8 +69,8 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editText1"
-        android:layout_alignStart="@id/editText1"
+        android:layout_below="@id/textview1"
+        android:layout_alignStart="@id/textview1"
         android:layout_marginStart="10dp"
         android:layout_marginTop="100dp"
         android:text="@string/_1"

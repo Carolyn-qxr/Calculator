@@ -20,5 +20,10 @@
     <string name="delete">DEL</string>
     <string name="percent">%</string>
     <string name="chushi">0</string>
+    <string name="mc">mc</string>
+    <string name="left">(</string>
+    <string name="right">)</string>
+    <string name="_1_x">1/x</string>
+
 
 </resources>

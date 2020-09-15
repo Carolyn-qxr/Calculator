@@ -1,7 +1,297 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.calculator.MainActivity"
+    android:orientation="vertical"
+    android:weightSum="1">
 
-    
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView2"
+
+        android:layout_width="678dp"
+        android:layout_height="184dp"
+        android:layout_weight="0.82"
+        android:gravity="end|bottom"
+        android:hint="@string/_0"
+        android:textSize="100sp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <Button style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/left"
+                android:text="@string/left"
+                android:textSize="28sp"
+                />
+            <Button style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/right"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:text="@string/right"
+                android:textSize="28sp"
+                />
+
+
+            <Button style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/ln"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:text="ln"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                />
+            <Button style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/C2"
+                android:text="@string/c"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:textSize="28sp"
+                 />
+            <Button style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/divider1"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:text="@string/divider"
+                android:textSize="28sp"
+                />
+            <Button style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/multiply1"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:text="@string/multiply"
+                android:textSize="28sp"
+                />
+            <Button style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/delete1"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:text="@string/delete"
+                android:textSize="28sp"
+                />
+
+
+        </TableRow>
+        <TableRow>
+            <Button style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/pingfang"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:text="x²"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                />
+
+
+            <Button
+                android:id="@+id/sin"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sin"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                />
+
+            <Button
+                android:id="@+id/cos"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cos"
+                android:textAllCaps="false"
+                android:textSize="28sp" />
+            <Button
+                android:id="@+id/button7"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7"
+                android:textSize="28sp"
+                android:textColor="#000000"/>
+
+            <Button
+                android:id="@+id/button8"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8"
+                android:textSize="28sp"
+                android:textColor="#000000"/>
+            <Button
+                android:id="@+id/button9"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9"
+                android:textSize="28sp"
+                android:textColor="#000000"/>
+            <Button
+                android:id="@+id/sub"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="－"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                />
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/length"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cm~m"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                />
+            <Button
+                android:id="@+id/cube"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cm³~m³"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                />
+            <Button
+                android:id="@+id/tan"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tan"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                />
+
+            <Button
+                android:id="@+id/button6"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                />
+            <Button
+                android:id="@+id/button5"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                />
+            <Button
+                android:id="@+id/button4"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                />
+
+            <Button
+                android:id="@+id/add"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="＋"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+
+                />
+
+        </TableRow>
+        <TableRow>
+            <Button
+            android:id="@+id/jinzhi"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="进制转换"
+                android:textSize="28sp"
+            android:textAllCaps="false"
+            />
+
+            <Button
+                android:id="@+id/rate"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="汇率"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                />
+
+            <Button
+                android:id="@+id/help"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="help"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                />
+
+            <Button
+                android:id="@+id/button3"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                />
+            <Button
+                android:id="@+id/button2"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                />
+            <Button
+                android:id="@+id/button1"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                />
+            <Button
+                android:id="@+id/equal"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="＝"
+                android:textSize="28sp"
+                android:textAllCaps="false"
+
+                />
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>
