@@ -50,28 +50,28 @@
                 android:textAllCaps="false"
                 />
             <Button style="?android:attr/buttonBarButtonStyle"
-                android:id="@+id/C2"
+                android:id="@+id/C"
                 android:text="@string/c"
                 android:layout_width="85dp"
                 android:layout_height="wrap_content"
                 android:textSize="28sp"
                  />
             <Button style="?android:attr/buttonBarButtonStyle"
-                android:id="@+id/divider1"
+                android:id="@+id/divider"
                 android:layout_width="85dp"
                 android:layout_height="wrap_content"
                 android:text="@string/divider"
                 android:textSize="28sp"
                 />
             <Button style="?android:attr/buttonBarButtonStyle"
-                android:id="@+id/multiply1"
+                android:id="@+id/multiply"
                 android:layout_width="85dp"
                 android:layout_height="wrap_content"
                 android:text="@string/multiply"
                 android:textSize="28sp"
                 />
             <Button style="?android:attr/buttonBarButtonStyle"
-                android:id="@+id/delete1"
+                android:id="@+id/delete"
                 android:layout_width="85dp"
                 android:layout_height="wrap_content"
                 android:text="@string/delete"
@@ -135,7 +135,7 @@
                 android:textSize="28sp"
                 android:textColor="#000000"/>
             <Button
-                android:id="@+id/sub"
+                android:id="@+id/buttonSub"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -209,7 +209,7 @@
                 />
 
             <Button
-                android:id="@+id/add"
+                android:id="@+id/buttonAdd"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

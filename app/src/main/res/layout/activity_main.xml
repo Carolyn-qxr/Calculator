@@ -22,7 +22,7 @@
         android:textSize="70sp" />
 
     <Button
-        android:id="@+id/C1"
+        android:id="@+id/C"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@id/button1"
@@ -37,8 +37,8 @@
         android:id="@+id/divider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/C1"
-        android:layout_alignBaseline="@id/C1"
+        android:layout_toEndOf="@id/C"
+        android:layout_alignBaseline="@id/C"
         android:textSize="30sp"
         android:text="@string/divider"
         android:layout_marginStart="10dp"
@@ -98,7 +98,7 @@
 
         />
     <Button
-        android:id="@+id/buttonPlus"
+        android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/button3"
@@ -210,7 +210,7 @@
         android:textSize="30sp"
         />
     <Button
-        android:id="@+id/button."
+        android:id="@+id/point"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/button0"
