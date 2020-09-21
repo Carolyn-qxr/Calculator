@@ -198,9 +198,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 text.setText(input);
                 break;
             case R.id.percent:
-                if(input.length()!=0){
-                    result=Double.toString((Double.valueOf(input))/100.0);
-                    String str=result+"";
+                if(input.length()!=0) {
+                    result = Double.toString((Double.valueOf(input)) / 100.0);
+                    String str = result + "";
                     text.setText(str);
                 }
         }
