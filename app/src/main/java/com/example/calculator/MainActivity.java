@@ -14,13 +14,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9;
     Button jia,jian,cheng,chu,delete,clear,point,percent,equal;
-    Button left,right,ln,square,sin,cos,length,cube,tan,jinzhi,rate,help;
+    Button left,right,ln,square,sin,cos,length,cube,tan,jiecheng,sqrt,help;
     TextView text;//用来显示输入的数据
     String input="";
     double num1,num2,num3;
     double sum1,sum2,sum3;
     String result;
     final double pi=3.1415926;
+    private boolean clear_flag=false;
+    private String str;
 
     StringBuilder stringBuilder = new StringBuilder();
     boolean isclick=false;
@@ -79,8 +81,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         length=(Button)findViewById(R.id.length) ;
         cube=(Button)findViewById(R.id.cube);
         tan=(Button)findViewById(R.id.tan);
-        jinzhi=(Button)findViewById(R.id.jinzhi);
-        rate=(Button)findViewById(R.id.rate);
+        jiecheng=(Button)findViewById(R.id.jiecheng);
+        sqrt=(Button)findViewById(R.id.sqrt);
         help=(Button)findViewById(R.id.help);
         //显示框
         text=(TextView)findViewById(R.id.textView);
@@ -113,8 +115,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         length.setOnClickListener(this);
         cube.setOnClickListener(this);
         tan.setOnClickListener(this);
-        jinzhi.setOnClickListener(this);
-        rate.setOnClickListener(this);
+        jiecheng.setOnClickListener(this);
+        sqrt.setOnClickListener(this);
         help.setOnClickListener(this);
     }
 
@@ -169,79 +171,90 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
+        str=text.getText().toString();
         Log.v("Tag","click");
         switch (view.getId()){
             case R.id.button0:
-                input=this.add("0");
-                text.setText(input);
-                break;
             case R.id.button1:
-                input=this.add("1");
-                text.setText(input);
-                break;
             case R.id.button2:
-                input=this.add("2");
-                text.setText(input);
-                break;
             case R.id.button3:
-                input=this.add("3");
-                text.setText(input);
-                break;
             case R.id.button4:
-                input=this.add("4");
-                text.setText(input);
-                break;
             case R.id.button5:
-                input=this.add("5");
-                text.setText(input);
-                break;
             case R.id.button6:
-                input=this.add("6");
-                text.setText(input);
-                break;
             case R.id.button7:
-                input=this.add("7");
-                text.setText(input);
-                break;
             case R.id.button8:
-                input=this.add("8");
-                text.setText(input);
-                break;
             case R.id.button9:
-                input=this.add("9");
-                text.setText(input);
-                break;
             case R.id.point:
-                input=this.add(".");
-                text.setText(input);
+                str+= ((Button)view).getText();
+                text.setText(str);
                 break;
             case R.id.divider:
-                input=this.add("/");
-                text.setText(input);
-                break;
             case R.id.multiply:
-                input=this.add("*");
-                text.setText(input);
-                break;
             case R.id.buttonAdd:
-                input=this.add("+");
-                text.setText(input);
-                break;
             case R.id.buttonSub:
-                input=this.add("-");
-                text.setText(input);
+                str+=((Button)view).getText();
+                text.setText(str);
                 break;
-            case R.id.percent:
-                if(input.length()!=0) {
-                    result = Double.toString((Double.valueOf(input)) / 100.0);
-                    String str = result + "";
-                    text.setText(str);
+            //单个删除    
+            case R.id.delete:
+                if(str!=null && !str.equals("")){
+                   text.setText(str.substring(0,str.length()-1));
                 }
                 break;
+            //百分号    
+            case R.id.percent:
+                if(str.length()!=0){
+                    result=Double.toString((Double.parseDouble(str))/100.0);
+                }else if(str.length()==0){
+                    result="error!";
+                    text.setText(result);
+                    return;
+
+                }
+                text.setText(result);
+                break;
+            //清零    
+            case R.id.C:
+                str="";
+                text.setText(str);
+                break;
+            //等号
+            case R.id.equal:
+                str+=((Button)view).getText();
+                getResult();
+                break;
+            case R.id.square:
+                if(str.length()!=0){
+                    Double temp=Double.parseDouble(str);
+                    result=Double.toString(temp*temp);
+
+                }else{
+                    result="error!";
+                }
+                text.setText(result);
+                break;
+            case R.id.jiecheng:
+                if(str.length()!=0){
+                    double temp=Double.parseDouble(str);
+                    double flag=1;
+                    for(int i=0;(temp-flag)>0;i++){
+
+                    }
+                }
+            case R.id.sqrt:
+            case R.id.left:
+            case R.id.right:
+            case R.id.ln:
+            case R.id.sin:
+            case R.id.cos:
+            case R.id.tan:
+            case R.id.length:
+            case R.id.cube:
+            case R.id.help:
         }
     }
-    public String add(String s){
-        input=input+String.valueOf(s);
-        return input;
+
+    private void getResult() {
     }
+
 }

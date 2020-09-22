@@ -222,21 +222,21 @@
         </TableRow>
         <TableRow>
             <Button
-            android:id="@+id/jinzhi"
+            android:id="@+id/jiecheng"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="进制转换"
+            android:text="x!"
                 android:textSize="28sp"
             android:textAllCaps="false"
             />
 
             <Button
-                android:id="@+id/rate"
+                android:id="@+id/sqrt"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="汇率"
+                android:text="√x"
                 android:textSize="28sp"
                 android:textAllCaps="false"
                 />
