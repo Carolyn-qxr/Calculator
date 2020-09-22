@@ -1,5 +1,6 @@
 package com.example.calculator;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.Configuration;
@@ -7,8 +8,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -185,17 +192,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button8:
             case R.id.button9:
             case R.id.point:
-                str+= ((Button)view).getText();
-                text.setText(str);
-                break;
+            case R.id.left:
+            case R.id.right:
             case R.id.divider:
             case R.id.multiply:
             case R.id.buttonAdd:
             case R.id.buttonSub:
-                str+=((Button)view).getText();
+                str+= ((Button)view).getText();
                 text.setText(str);
                 break;
-            //单个删除    
+            //单个删除
             case R.id.delete:
                 if(str!=null && !str.equals("")){
                    text.setText(str.substring(0,str.length()-1));
@@ -237,24 +243,266 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(str.length()!=0){
                     double temp=Double.parseDouble(str);
                     double flag=1;
-                    for(int i=0;(temp-flag)>0;i++){
-
+                    for(int i=0;(temp-i)>0;i++){
+                        flag*=(temp-i);
                     }
-                }
+                    result=Double.toString(flag);
+                }else
+                    result="0";
+                text.setText(result);
+                break;
             case R.id.sqrt:
-            case R.id.left:
-            case R.id.right:
+                if(str.length()!=0){
+                    double temp=Double.parseDouble(str);
+                    result=Double.toString(Math.sqrt(temp));
+                }else
+                    result="0";
+                text.setText(result);
+                break;
             case R.id.ln:
+                if(str.length()!=0){
+                    double temp=Double.parseDouble(str);
+                    result=Double.toString(Math.log(temp));
+                }else{
+                    result="0";
+                }
+                text.setText(result);
+                break;
             case R.id.sin:
+                if(str.length()!=0){
+                    double temp=Double.parseDouble(str);
+                    result=Double.toString(Math.sin(pi/180*temp));
+                 }else{
+                    result="0";
+                }
+                text.setText(result);
+                break;
             case R.id.cos:
+                if(str.length()!=0){
+                    double temp=Double.parseDouble(str);
+                    result=Double.toString(Math.cos(pi/180*temp));
+                }else{
+                    result="0";
+                }
+                text.setText(result);
+                break;
             case R.id.tan:
+                if(str.length()!=0){
+                    double temp=Double.parseDouble(str);
+                    result=Double.toString(Math.tan(pi/180*temp));
+                }else{
+                    result="0";
+                }
+                text.setText(result);
+                break;
             case R.id.length:
+                if(str.length()!=0){
+                    double temp=Double.parseDouble(str);
+                    result=Double.toString(temp/100);
+                }else{
+                    result="0";
+                }
+                text.setText(result);
+                break;
             case R.id.cube:
+                if(str.length()!=0){
+                    double temp=Double.parseDouble(str);
+                    result=Double.toString(temp/1000000);
+                }else{
+                    result="0";
+                }
+                text.setText(result);
+                break;
+
             case R.id.help:
+                AlertDialog alertDialog1 = new AlertDialog.Builder(this)
+                        .setTitle("帮助")//标题
+                        .setMessage("这是一个普通的计算器")//内容
+                        .setIcon(R.mipmap.ic_launcher)//图标
+                        .create();
+                alertDialog1.show();
+                break;
+
         }
     }
 
     private void getResult() {
+        //查找是否存在符号，若有则运算，没有则直接返回
+        if(str==null || str.equals("")){
+            return;
+        }
+        if('-'==str.charAt(0))
+            str=0+str;
+
+        if(!MyUtils.check(str)){
+            text.setText("表达式错误");
+        }
+        //处理表达式改为标准表达式
+        str=MyUtils.change(str);
+
+        //拆分字符和数字
+        String []nums = str.split("[^.0-9]");
+        ArrayList numlist = new ArrayList();
+        for(int i=0;i<nums.length;i++){
+            if(!"".equals(nums[i]))
+                numlist.add(Double.parseDouble(nums[i]));
+        }
+
+        String symStr=str.replaceAll("[.0-9]","");
+
+        Calculate(symStr,numlist);
+
     }
 
+    private void Calculate(String symStr, ArrayList numlist) {
+        LinkedList<Character> symstack=new LinkedList<>();//符号栈
+        LinkedList<Double> numStack = new LinkedList<>();//数字栈
+        double result=0;
+        int i=0;//numlist的标志位
+        int j=0;//symStr的标志位
+        char symbol;
+        double num1,num2;
+        //符号前后两个数
+        while(symstack.isEmpty() || !(symstack.getLast()=='=' && symStr.charAt(j)=='=')){
+            if(symstack.isEmpty()){
+                symstack.add('=');
+                numStack.add((Double)numlist.get(i++));
+            }
+            if(MyUtils.map.get(symStr.charAt(j))> MyUtils.map.get(symstack.getLast())){
+                if(symStr.charAt(j)=='('){
+                    symstack.add(symStr.charAt(j++));
+                    continue;
+                }
+                numStack.add((Double)numlist.get(i++));
+                symstack.add(symStr.charAt(j++));
+            }else{
+                if(symStr.charAt(j)==')' && symstack.getLast()=='('){
+                    j++;
+                    symstack.removeLast();
+                    continue;
+                }
+                if(symstack.getLast()=='('){
+                    numStack.add((Double)numlist.get(i++));
+                    symstack.add(symStr.charAt(j++));
+                    continue;
+                }
+                num2=numStack.removeLast();
+                num1=numStack.removeLast();
+                symbol=symstack.removeLast();
+                switch (symbol){
+                    case '+':
+                        numStack.add(num1+num2);
+                        break;
+                    case '-':
+                        numStack.add(num1-num2);
+                        break;
+                    case '×':
+                        numStack.add(num1*num2);
+                        break;
+                    case '÷':
+                        if(num2==0){
+                            text.setText("error!");
+                            return;
+                        }
+                        numStack.add(num1/num2);
+                        break;
+                }
+            }
+        }
+        String string  = numStack.removeLast()+"";
+        text.setText(string);
+    }
+
+
+}
+class MyUtils{
+    public static final Map<Character,Integer> map = new HashMap<>();
+    static {
+        map.put('=',0);
+        map.put('-',1);
+        map.put('+',1);
+        map.put('×',2);
+        map.put('÷',2);
+        map.put('(',3);
+        map.put(')',1);
+    }
+    /*
+   检查表达式格式
+    */
+    public static boolean check(String str){
+        if(!(isCharNum(str.charAt(0)) || str.charAt(0)=='(')){
+            return false;
+        }
+        for(int i=1;i<str.length()-1;i++) {
+            char c;
+            c = str.charAt(i);
+            if (!(isCharNum(c))) {
+                if (c == '(' || c == '+' || c == '×' || c == '÷') {
+                    if (c == '-' && str.charAt(i - 1) == '(') {
+                        continue;
+                    }
+                    if (!(isCharNum(str.charAt(i - 1)) || str.charAt(i - 1) == ')')) {
+                        return false;
+                    }
+                }
+                if (c == '.') {
+                    if (!isCharNum(str.charAt(i - 1)) || !isCharNum(str.charAt(i + 1))) {
+                        return false;
+                    }
+
+                }
+            }
+        }
+        return isCouple(str);
+    }
+    /*
+    处理表达式格式为标准格式，2(-1+2)(3+4)改为2*(0-1+2)*(3+4)
+     */
+    public static String change(String str){
+        StringBuilder sb = new StringBuilder();
+        char c;
+        for(int i=0;i<str.length();i++){
+            c=str.charAt(i);
+            if(i!=0&&c=='(' &&(isCharNum(str.charAt(i-1)) || str.charAt(i-1)==')')){
+                sb.append("×(");
+                continue;
+            }
+            if(c=='-'&&str.charAt(i-1)=='('){
+                sb.append("0-");
+                continue;
+            }
+            sb.append(c);
+        }
+        return sb.toString();
+    }
+    /*
+    判断括号是否配对
+     */
+    private static boolean isCouple(String str){
+        LinkedList<Character> list = new LinkedList<>();
+        for(char c:str.toCharArray()){
+            if(c=='('){
+                list.add(c);
+            }else if(c==')'){
+                if(list.isEmpty()){
+                    return false;
+                }
+                list.removeLast();
+            }
+        }
+        if(list.isEmpty()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    /*
+    判断是否为数字
+     */
+    public static boolean isCharNum(Character c){
+        if(c>='0' && c<=9){
+            return true;
+        }
+        return false;
+    }
 }
