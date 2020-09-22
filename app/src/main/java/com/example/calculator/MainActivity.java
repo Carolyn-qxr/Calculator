@@ -32,7 +32,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn0=(Button)findViewById(R.id.button0);
+        //利用log视察横竖屏状态，并初始化组件
+        //横竖屏组件个数不一样，不用同一个方法，避免空指针
+        int orientation;
+        orientation=getResources().getConfiguration().orientation;
+        Log.d("----",""+orientation);
+        int mcurrentOrientation=getResources().getConfiguration().orientation;
+        //竖屏
+        if(mcurrentOrientation==Configuration.ORIENTATION_PORTRAIT){
+            Log.i("info","portrait");
+            initView_por();
+            initEvent_por();
+        }else if(mcurrentOrientation==Configuration.ORIENTATION_LANDSCAPE){
+            Log.i("info","landscape");
+            initView_land();
+            initEvent_land();
+        }
+
+    }
+    private void initView_land() {
         btn1=(Button)findViewById(R.id.button1);
         btn2=(Button)findViewById(R.id.button2);
         btn3=(Button)findViewById(R.id.button3);
@@ -42,20 +60,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn7=(Button)findViewById(R.id.button7);
         btn8=(Button)findViewById(R.id.button8);
         btn9=(Button)findViewById(R.id.button9);
-
         //加减乘除
         jia=(Button)findViewById(R.id.buttonAdd);
         jian=(Button)findViewById(R.id.buttonSub);
         cheng=(Button)findViewById(R.id.multiply);
         chu=(Button)findViewById(R.id.divider);
-
-        //竖屏其他功能
+        //横屏其他功能
         delete=(Button)findViewById(R.id.delete);
         clear=(Button)findViewById(R.id.C);
-        point=(Button)findViewById(R.id.point);
-        percent=(Button)findViewById(R.id.percent);
         equal=(Button)findViewById(R.id.equal);
-
         //横屏其他功能
         left=(Button)findViewById(R.id.left);
         right=(Button)findViewById(R.id.right);
@@ -69,11 +82,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         jinzhi=(Button)findViewById(R.id.jinzhi);
         rate=(Button)findViewById(R.id.rate);
         help=(Button)findViewById(R.id.help);
-
-
         //显示框
-        text=(TextView)findViewById(R.id.textview1);
-
+        text=(TextView)findViewById(R.id.textView);
+    }
+    private void initEvent_land() {
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
@@ -92,46 +104,68 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         delete.setOnClickListener(this);
         clear.setOnClickListener(this);
         equal.setOnClickListener(this);
-
-        if(this.getResources().getConfiguration().orientation==Configuration.ORIENTATION_LANDSCAPE){
-            //横屏
-            Log.i("info","landscape");
-            left.setOnClickListener(this);
-            right.setOnClickListener(this);
-            ln.setOnClickListener(this);
-            square.setOnClickListener(this);
-            sin.setOnClickListener(this);
-            cos.setOnClickListener(this);
-            length.setOnClickListener(this);
-            cube.setOnClickListener(this);
-            tan.setOnClickListener(this);
-            jinzhi.setOnClickListener(this);
-            rate.setOnClickListener(this);
-            help.setOnClickListener(this);
-        }
-        else if(this.getResources().getConfiguration().orientation==Configuration.ORIENTATION_PORTRAIT){
-            Log.i("info","portrait");
-            point.setOnClickListener(this);
-            percent.setOnClickListener(this);
-            btn0.setOnClickListener(this);
-        }
+        left.setOnClickListener(this);
+        right.setOnClickListener(this);
+        ln.setOnClickListener(this);
+        square.setOnClickListener(this);
+        sin.setOnClickListener(this);
+        cos.setOnClickListener(this);
+        length.setOnClickListener(this);
+        cube.setOnClickListener(this);
+        tan.setOnClickListener(this);
+        jinzhi.setOnClickListener(this);
+        rate.setOnClickListener(this);
+        help.setOnClickListener(this);
     }
 
-
-
-
-
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
-        // Checks the orientation of the screen
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
-        }
+    //竖屏初始化
+    private void initView_por() {
+        btn0=(Button)findViewById(R.id.button0);
+        btn1=(Button)findViewById(R.id.button1);
+        btn2=(Button)findViewById(R.id.button2);
+        btn3=(Button)findViewById(R.id.button3);
+        btn4=(Button)findViewById(R.id.button4);
+        btn5=(Button)findViewById(R.id.button5);
+        btn6=(Button)findViewById(R.id.button6);
+        btn7=(Button)findViewById(R.id.button7);
+        btn8=(Button)findViewById(R.id.button8);
+        btn9=(Button)findViewById(R.id.button9);
+        //加减乘除
+        jia=(Button)findViewById(R.id.buttonAdd);
+        jian=(Button)findViewById(R.id.buttonSub);
+        cheng=(Button)findViewById(R.id.multiply);
+        chu=(Button)findViewById(R.id.divider);
+        //竖屏其他功能
+        delete=(Button)findViewById(R.id.delete);
+        clear=(Button)findViewById(R.id.C);
+        equal=(Button)findViewById(R.id.equal);
+        point=(Button)findViewById(R.id.point);
+        percent=(Button)findViewById(R.id.percent);
+        //显示框
+        text=(TextView)findViewById(R.id.textview);
     }
 
+    private void initEvent_por() {
+        btn0.setOnClickListener(this);
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
+        btn3.setOnClickListener(this);
+        btn4.setOnClickListener(this);
+        btn5.setOnClickListener(this);
+        btn6.setOnClickListener(this);
+        btn7.setOnClickListener(this);
+        btn8.setOnClickListener(this);
+        btn9.setOnClickListener(this);
+        jia.setOnClickListener(this);
+        jian.setOnClickListener(this);
+        cheng.setOnClickListener(this);
+        chu.setOnClickListener(this);
+        delete.setOnClickListener(this);
+        clear.setOnClickListener(this);
+        equal.setOnClickListener(this);
+        point.setOnClickListener(this);
+        percent.setOnClickListener(this);
+    }
     @Override
     public void onClick(View view) {
 
