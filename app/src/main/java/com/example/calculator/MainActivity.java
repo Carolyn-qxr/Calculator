@@ -237,6 +237,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String str = result + "";
                     text.setText(str);
                 }
+                break;
         }
     }
     public String add(String s){
