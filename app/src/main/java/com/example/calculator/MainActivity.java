@@ -3,9 +3,12 @@ package com.example.calculator;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.MultiAutoCompleteTextView;
@@ -412,6 +415,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String string  = numStack.removeLast()+"";
         text.setText(string);
     }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // 这条表示加载菜单文件，第一个参数表示通过那个资源文件来创建菜单
+        // 第二个表示将菜单传入那个对象中。这里我们用Menu传入menu
+        // 这条语句一般系统帮我们创建好
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+    // 菜单的监听方法
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int mCurrentOrientation = getResources().getConfiguration().orientation;
+        switch (item.getItemId()) {
+            case R.id.jinzhi:
+                Toast.makeText(this, "进制转换", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this,MainActivity_jinzhi.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+        return true;
+
+    }
 
 
 }
@@ -505,4 +531,6 @@ class MyUtils{
         }
         return false;
     }
+
+
 }

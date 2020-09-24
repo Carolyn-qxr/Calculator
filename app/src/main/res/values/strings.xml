@@ -25,5 +25,13 @@
     <string name="right">)</string>
     <string name="_1_x">1/x</string>
 
+    <string-array name="spinner">
+        <item>二进制</item>
+        <item>八进制</item>
+        <item>十进制</item>
+        <item>十六进制</item>
+
+    </string-array>
+
 
 </resources>

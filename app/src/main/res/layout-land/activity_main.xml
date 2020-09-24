@@ -16,12 +16,11 @@
         android:layout_weight="0.82"
         android:gravity="end|bottom"
         android:hint="@string/_0"
-        android:textSize="100sp" />
+        android:textSize="50sp" />
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="match_parent">

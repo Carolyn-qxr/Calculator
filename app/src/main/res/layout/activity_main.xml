@@ -19,7 +19,7 @@
         android:ems="10"
         android:gravity="end|bottom"
         android:hint="@string/chushi"
-        android:textSize="70sp" />
+        android:textSize="50sp" />
 
     <Button
         android:id="@+id/C"
@@ -30,6 +30,8 @@
         android:text="@string/c"
         android:textSize="30sp"
         android:layout_marginTop="40dp"
+        android:background="@drawable/background"
+        android:textColor="#7FFFD4"
 
         />
 
@@ -42,6 +44,8 @@
         android:textSize="30sp"
         android:text="@string/divider"
         android:layout_marginStart="10dp"
+        android:background="@drawable/background"
+        android:textColor="#7FFFD4"
         />
     <Button
         android:id="@+id/multiply"
@@ -52,6 +56,8 @@
         android:textSize="30sp"
         android:text="@string/multiply"
         android:layout_marginStart="10dp"
+        android:background="@drawable/background"
+        android:textColor="#7FFFD4"
         />
 
 
@@ -64,6 +70,8 @@
         android:textSize="30sp"
         android:text="@string/delete"
         android:layout_marginStart="10dp"
+        android:background="@drawable/background"
+        android:textColor="#7FFFD4"
         />
     <Button
         android:id="@+id/button1"
@@ -74,7 +82,10 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="100dp"
         android:text="@string/_1"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:background="@drawable/background"
+
+        />
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -85,6 +96,7 @@
         android:textSize="30sp"
         android:layout_marginStart="10dp"
         android:text="@string/_2"
+        android:background="@drawable/background"
         />
     <Button
         android:id="@+id/button3"
@@ -95,6 +107,7 @@
         android:textSize="30sp"
         android:layout_marginStart="10dp"
         android:text="@string/_3"
+        android:background="@drawable/background"
 
         />
     <Button
@@ -106,6 +119,8 @@
         android:textSize="30sp"
         android:layout_marginStart="10dp"
         android:text="@string/plus"
+        android:background="@drawable/background"
+        android:textColor="#7FFFD4"
 
         />
     <Button
@@ -116,6 +131,7 @@
         android:layout_alignStart="@id/button1"
         android:textSize="30sp"
         android:text="@string/_4"
+        android:background="@drawable/background"
         />
     <Button
         android:id="@+id/button5"
@@ -126,6 +142,7 @@
         android:textSize="30sp"
         android:layout_marginStart="10dp"
         android:text="@string/_5"
+        android:background="@drawable/background"
         />
     <Button
         android:id="@+id/button6"
@@ -136,6 +153,7 @@
         android:layout_marginStart="10dp"
         android:textSize="30sp"
         android:text="@string/_6"
+        android:background="@drawable/background"
         />
     <Button
         android:id="@+id/buttonSub"
@@ -146,6 +164,9 @@
         android:textSize="30sp"
         android:layout_marginStart="10dp"
         android:text="@string/sub"
+        android:background="@drawable/background"
+        android:textColor="#7FFFD4"
+
         />
     <Button
         android:id="@+id/button7"
@@ -155,6 +176,7 @@
         android:textSize="30sp"
         android:layout_alignStart="@id/button4"
         android:text="@string/_7"
+        android:background="@drawable/background"
         />
     <Button
         android:id="@+id/button8"
@@ -165,6 +187,7 @@
         android:textSize="30sp"
         android:layout_marginStart="10dp"
         android:text="@string/_8"
+        android:background="@drawable/background"
         />
     <Button
         android:id="@+id/button9"
@@ -175,6 +198,7 @@
         android:textSize="30sp"
         android:layout_marginStart="10dp"
         android:text="@string/_9"
+        android:background="@drawable/background"
         />
     <Button
 
@@ -186,6 +210,8 @@
         android:layout_marginStart="10dp"
         android:textSize="30sp"
         android:text="@string/equal"
+        android:background="@drawable/background"
+        android:textColor="#7FFFD4"
 
         />
 
@@ -198,6 +224,8 @@
         android:layout_alignStart="@id/button7"
         android:textSize="30sp"
         android:text="@string/percent"
+        android:background="@drawable/background"
+        android:textColor="#7FFFD4"
         />
     <Button
         android:id="@+id/button0"
@@ -208,6 +236,7 @@
         android:layout_marginStart="10dp"
         android:text="@string/_0"
         android:textSize="30sp"
+        android:background="@drawable/background"
         />
     <Button
         android:id="@+id/point"
@@ -218,6 +247,8 @@
         android:layout_marginStart="10dp"
         android:text="@string/point"
         android:textSize="30sp"
+        android:background="@drawable/background"
+        android:textColor="#7FFFD4"
         />
 
 
